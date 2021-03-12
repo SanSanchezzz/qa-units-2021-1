@@ -1,6 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Order.js getDate has been called 1`] = `
+exports[`Order.js render with items null 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      shop
+    </span>
+    <span
+      id="date"
+    >
+      11 января
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  />
+</div>
+`;
+
+exports[`Order.js render with shop and date are null 1`] = `""`;
+
+exports[`Order.js render with some fake data 1`] = `
 <div
   className="Order"
 >
@@ -42,29 +68,3 @@ exports[`Order.js getDate has been called 1`] = `
   </div>
 </div>
 `;
-
-exports[`Order.js getDate has been called without items 1`] = `
-<div
-  className="Order"
->
-  <div
-    className="Order-header"
-  >
-    <span
-      className="Order-shop"
-    >
-      shop
-    </span>
-    <span
-      id="date"
-    >
-      11 января
-    </span>
-  </div>
-  <div
-    className="Order-items"
-  />
-</div>
-`;
-
-exports[`Order.js shop and date are null 1`] = `""`;
