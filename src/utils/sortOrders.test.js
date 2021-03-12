@@ -9,8 +9,8 @@ describe('sortByItemCount function', () => {
 		expect(result).toEqual(0);
 	});
 
-	it('order are not object', () => {
-		const result = sortByItemCount(null, 1);
+	it('orders are not object', () => {
+		const result = sortByItemCount(2, 1);
 		expect(result).toEqual(0);
 	});
 
@@ -69,6 +69,20 @@ describe('sortByItemCount function', () => {
 
 		expect(result).toBe(0);
 	});
+
+	it('item are null', () => {
+		const order1 = {
+			items: ['1', '2'],
+		};
+
+		const order2 = {
+			items: null,
+		};
+
+		const result = sortByItemCount(order1, order2);
+
+		expect(result).toBe(0);
+	});
 });
 
 describe('sortByDate function', () => {
@@ -77,8 +91,8 @@ describe('sortByDate function', () => {
 		expect(result).toEqual(0);
 	});
 
-	it('order are not object', () => {
-		const result = sortByDate(null, 1);
+	it('orders are not object', () => {
+		const result = sortByDate(2, 1);
 		expect(result).toEqual(0);
 	});
 
@@ -98,11 +112,11 @@ describe('sortByDate function', () => {
 
 	it('the first order was earlier than the second', () => {
 		const order1 = {
-			date: 1544356800000,
+			date: 1,
 		};
 
 		const order2 = {
-			date: 1552481120000,
+			date: 100,
 		};
 
 		const result = sortByDate(order1, order2);
@@ -112,11 +126,11 @@ describe('sortByDate function', () => {
 
 	it('the second order was earlier than the first', () => {
 		const order1 = {
-			date: 1552481120000,
+			date: 100,
 		};
 
 		const order2 = {
-			date: 1544356800000,
+			date: 1,
 		};
 
 		const result = sortByDate(order1, order2);
@@ -126,11 +140,11 @@ describe('sortByDate function', () => {
 
 	it('same date', () => {
 		const order1 = {
-			date: 1552481120000,
+			date: 1,
 		};
 
 		const order2 = {
-			date: 1552481120000,
+			date: 1,
 		};
 
 		const result = sortByDate(order1, order2);
@@ -163,14 +177,13 @@ describe('sortOrders function', () => {
 		expect(callback).toHaveBeenCalled();
 	});
 
-	it('orders are null', () => {
+	it('callback has not been called, orders are null', () => {
 		const callback = jest.fn();
 		sortOrders(null, callback);
 		expect(callback).toHaveBeenCalledTimes(0);
 	});
 
-	it('orders are null', () => {
-
+	it('callback has not been called, sortFunction are null', () => {
 		const orders = fakeOrders;
 		sortOrders(orders, null);
 		expect(orders).toStrictEqual(fakeOrders);

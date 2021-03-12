@@ -19,16 +19,20 @@ describe('Order.js', () => {
     getDate.mockClear();
   });
 
-  it('order is null', () => {
-    const order = fakeOrders[0];
-
+  it('render with order is null', () => {
     const wrapper = shallow(<Order
         order = {null}
     />);
 
-    expect(wrapper).toMatchSnapshot();
-    expect(getDate).toHaveBeenCalledTimes(0);
+    expect(wrapper.getElement()).toBeNull();
+  });
 
+  it('getDate not called with null', () => {
+    shallow(<Order
+        order = {null}
+    />);
+
+    expect(getDate).toHaveBeenCalledTimes(0);
   });
 
   it('shop and date are null', () => {
@@ -51,9 +55,7 @@ describe('Order.js', () => {
     expect(getDate).toHaveBeenCalledTimes(1);
   });
 
-  it('getDate has been called', () => {
-    const order = fakeOrders[0];
-
+  it('getDate has been called without items', () => {
     const wrapper = shallow(<Order
         order = {{shop: 'shop', date: 'date', items: null}}
     />);
