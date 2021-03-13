@@ -24,8 +24,6 @@ exports[`Order.js render with items null 1`] = `
 </div>
 `;
 
-exports[`Order.js render with shop and date are null 1`] = `""`;
-
 exports[`Order.js render with some fake data 1`] = `
 <div
   className="Order"

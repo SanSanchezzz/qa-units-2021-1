@@ -40,7 +40,7 @@ describe('Order.js', () => {
         order = {{shop: null, date: null}}
     />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.getElement()).toBeNull();
   });
 
   it('getDate not called with shop and date are null', () => {
